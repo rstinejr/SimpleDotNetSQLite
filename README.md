@@ -32,5 +32,14 @@ tool will successfully format the SQLite data files even on a 64-bit machine.
 To create the tables defined in DemoDB.sql, enter
 
 ```
-    sqlite3 demo.db < DemoDB.sql
+    sqlite3 demo.db < DdlForDemo.sql
 ```
+
+The database file in the above case is ```demo.db```. It will be created if it does
+not exist, and the DDL in DdlForDemo.sql is executed. If ```demo.db`` is already
+present, the command will attempt to update the database with the DDL.
+
+# Dropping the Database
+
+SQLite is a serverless database. You can drop a database by simply deleting the file (e.g., demo.db).
+
