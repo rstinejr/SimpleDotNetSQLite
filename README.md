@@ -27,3 +27,10 @@ on [How to Install Sqlite3 on Windows 10)[http://www.configserverfirewall.com/wi
 Download the sqlite-tools zip file from the [SQLite Download site](https://www.sqlite.org/download.html).  Note that you will use the 32-bit tool on Windows 10: SQLite is not server based. The
 tool will successfully format the SQLite data files even on a 64-bit machine.
 
+# Creating the Database
+
+To create the tables defined in DemoDB.sql, enter
+
+```
+    sqlite3 demo.db < DemoDB.sql
+```
