@@ -42,9 +42,6 @@ Download the sqlite-tools zip file from the [SQLite Download site](https://www.s
 tool will successfully format the SQLite data files even on a 64-bit machine.
 
 
-To run the sqlite-net client, you will also need the native SQLite shared library installed. These are also available
-from the SQLite Download Site.
-
 ## Installing sqlite-net
 
 The .NET Core interface *sqlite-net* is a NuGet package. Instructions for installing it are
@@ -72,3 +69,9 @@ present, the command will attempt to update the database with the DDL.
 
 SQLite is a serverless database. You can drop a database by simply deleting the file (e.g., demo.db).
 
+# Implementation Notes
+
+To avoid complaints about incompatibility with netcoreapp2.0, I had to use version 1.5.166-beta
+
+When mapping classes to tables, sqlite-net enforces a naming convention of initial caps for fields; build error
+CS1002 occurs if this is violated.
