@@ -8,20 +8,20 @@ namespace waltonstine.demo.dotnet.sqlite
         public class Parent 
         {
             [PrimaryKey, AutoIncrement]
-            public int    Parent_pk { get; set; }
+            public int    Parent_pk { get; }
             public string Name      { get; set; }
-            public float  Pi        { get; set; }
+            public float  MyFloat   { get; set; }
             public byte[] Data      { get; set; }
         }
 
 
-        static private int InsertParent(SQLiteConnection conn, string name, float pi, byte[] blob)
+        static private int InsertParent(SQLiteConnection conn, string name, float myFloat, byte[] blob)
         {
             int insertCnt = conn.Insert(new Parent()
             {
-                Name = name,
-                Pi = pi,
-                Data = blob
+                Name    = name,
+                MyFloat = myFloat,
+                Data    = blob
             });
 
             return insertCnt;
