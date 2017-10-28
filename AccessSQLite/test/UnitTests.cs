@@ -1,7 +1,9 @@
 using System;
 using Xunit;
 
-namespace test
+using waltonstine.dotnet.demo.sqlite;
+
+namespace waltonstine.dotnet.demo.sqlite.tests
 {
     public class UnitTest1
     {

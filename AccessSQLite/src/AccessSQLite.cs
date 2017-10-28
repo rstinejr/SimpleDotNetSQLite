@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace src
+namespace waltonstine.demo.dotnet.sqlite
 {
     public class AccessSQLite
     {
