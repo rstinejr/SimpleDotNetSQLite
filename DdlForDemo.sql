@@ -2,7 +2,7 @@ CREATE TABLE Parent
 (
     Parent_pk INTEGER PRIMARY KEY,
     Name      TEXT,
-    Pi        REAL,
+    MyFloat   REAL,
     Data      BLOB
 );
 
