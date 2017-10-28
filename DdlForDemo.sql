@@ -1,7 +1,7 @@
-CREATE TABLE parent 
+CREATE TABLE Parent 
 (
-    parent_pk INTEGER PRIMARY KEY,
-    name      TEXT,
-    pi        REAL,
-    data      BLOB
+    Parent_pk INTEGER PRIMARY KEY,
+    Name      TEXT,
+    Pi        REAL,
+    Data      BLOB
 );
