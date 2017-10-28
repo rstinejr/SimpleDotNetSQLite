@@ -9,7 +9,6 @@ CREATE TABLE Parent
 CREATE TABLE Child
 (
     Child_pk  INTEGER PRIMARY KEY,
-    Parent_fk INTEGER REFERENCES Parent(Parent_pk)
-                      ON DELETE CASCADE,
+    Parent_fk INTEGER NOT NULL REFERENCES Parent(Parent_pk),
     Detail    TEXT NOT NULL
 );
