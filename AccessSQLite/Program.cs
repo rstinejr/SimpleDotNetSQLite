@@ -55,7 +55,9 @@ namespace waltonstine.demo.dotnet.sqlite
 
             int cnt = InsertParent(conn, "george", 1.234F, null);
 
-            for (int ii = 1; ii <= 3; ii++)
+            int ii = 1;
+            int maxChildren = 3;
+            for (; ii <= maxChildren; ii++)
             {
                 int rcnt = InsertChild(conn, 1, $"Detail {ii}");
                 if (rcnt != 1)
@@ -64,10 +66,15 @@ namespace waltonstine.demo.dotnet.sqlite
                     break;
                 }
             }
-
+            
             conn.Close();
 
-            Console.WriteLine($"Rows inserted: {cnt}");
+            Console.WriteLine($"Inserted {cnt} rows to Parent");
+
+            if (ii == (maxChildren + 1))
+            {
+                Console.WriteLine($"Wrote {maxChildren} rows to Child.");
+            }
         }
     }
 }
