@@ -48,12 +48,12 @@ from the SQLite Download Site.
 ## Installing sqlite-net
 
 The .NET Core interface *sqlite-net* is a NuGet package. Instructions for installing it are
-at [www.nuget.org](https://www.nuget.org/packages/sqlite-net-pcl). To install, e.g., version
-1.4.118 from the command line,
+at [www.nuget.org](https://www.nuget.org/packages/sqlite-net-pcl). To install the
+latest version from the command line,
 
 
 ```
-    dotnet add package sqlite-net-pcl --version 1.4.118
+    dotnet add package sqlite-net-pcl
 ```
 
 # Creating the Database
