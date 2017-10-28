@@ -18,7 +18,21 @@ Although lightweight, ```sqlite-net``` supports retrieval to annotated classes, 
 exposing SQL. Part of the goal of this project is to demonstrate using sqlite-net 
 to access pre-existing tables, and to explore the mappings between sqlite-net and .NET Core data types.
 
-# Installing SQLite
+## Set Up Your Environment
+
+This package assumes that .NET Core, the SQLite and libraries, and the sqlite-net NuGet package are installed.
+
+## Installing .NET Core
+
+.NET Core may be downloaded from https://dot.net.
+
+For Windows developers, the community version of an outstanding IDE, Visual Studio, may also be unloaded from that site.
+
+## Installing SQLite
+
+SQLite is serverless. "Installing" SQLite is actually more a case of deploying a shell command,
+[sqlite3](https://linux.die.net/man/1/sqlite3), that can create
+files and structure memory appropriately.
 
 On RHEL, sqlite can be installed using ```yum```.  My initial development environment,
 however, is Windows 10, so I followed the instructions
@@ -26,6 +40,21 @@ on [How to Install Sqlite3 on Windows 10)[http://www.configserverfirewall.com/wi
 
 Download the sqlite-tools zip file from the [SQLite Download site](https://www.sqlite.org/download.html).  Note that you will use the 32-bit tool on Windows 10: SQLite is not server based. The
 tool will successfully format the SQLite data files even on a 64-bit machine.
+
+
+To run the sqlite-net client, you will also need the native SQLite shared library installed. These are also available
+from the SQLite Download Site.
+
+## Installing sqlite-net
+
+The .NET Core interface *sqlite-net* is a NuGet package. Instructions for installing it are
+at [www.nuget.org](https://www.nuget.org/packages/sqlite-net-pcl). To install, e.g., version
+1.4.118 from the command line,
+
+
+```
+    dotnet add package sqlite-net-pcl --version 1.4.118
+```
 
 # Creating the Database
 
