@@ -75,3 +75,28 @@ To avoid complaints about incompatibility with netcoreapp2.0, I had to use versi
 
 When mapping classes to tables, sqlite-net enforces a naming convention of initial caps for fields; build error
 CS1002 occurs if this is violated.
+
+# Run the Demo
+
+Install .NET Core 2.0 and sqlite3. Then,
+
+1. git clone git@github.com:rstinejr/SimpleDotNetSQLite.git
+2. cd SimpleDotNetSQL
+3. sqlite3 demo.db < DdlForDemo.sql
+4. cd AccessSQLite
+5. dotnet restore
+6. dotnet build
+7. dotnet run
+
+Expected output:
+
+```
+SimpleDotNetSQLite\AccessSQLite>dotnet run
+Open database ../demo.db
+Inserted 1 rows to Parent
+Wrote 3 rows to Child.
+```
+
+# Build Notes
+
+Built on 64-bit Windows 10 with dotnet 2.0.
