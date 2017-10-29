@@ -8,7 +8,8 @@ a database, I like to create and update
 table definitions using a [DDL](http://whatis.techtarget.com/definition/Data-Definition-Language-DDL) 
 script and a database utility. The script is saved in source control - it is the schema definition.
 
-The [native SQLite package for .NET Core](https://docs.microsoft.com/en-us/ef/core/get-started/netcore/new-db-sqlite) uses the Microsoft Entity Framework. That is 
+The [native SQLite package for .NET Core](https://docs.microsoft.com/en-us/ef/core/get-started/netcore/new-db-sqlite) uses
+the Microsoft Entity Framework. That is 
 overkill for what I had in mind, but a little research turned up
 [sqlite-net](https://github.com/praeclarum/sqlite-net). This package appears to be 
 popular, ligthweight, and it is distributed under the MIT license.
@@ -43,7 +44,7 @@ that you will use the 32-bit tool on 64-bit Windows.
 
 # Creating the Database
 
-To create the tables defined in DemoDB.sql, enter
+To create the tables defined in DdlForDemo.sql, enter
 
 ```
     sqlite3 demo.db < DdlForDemo.sql
