@@ -23,6 +23,14 @@ namespace waltonstine.demo.dotnet.sqlite
             public string Detail { get; set; }
         }
 
+        public class MyJoin
+        {
+            public int    Ppk { get; set; }
+            public int    Cpk { get; set; }
+            public string Det { get; set; }
+
+        }
+
         static private int InsertParent(SQLiteConnection conn, string name, float myFloat, byte[] blob)
         {
             int insertCnt = conn.Insert(new Parent()
@@ -46,7 +54,15 @@ namespace waltonstine.demo.dotnet.sqlite
             return insertCnt;
         }
 
-        
+        private static string selectStr = "SELECT \"Parent_pk\" as \"Ppk\", \"c.Child_pk\" as \"Cpk\", \"Detail\" as \"Det\" "
+                                         + "  FROM Parent p, Child c "
+                                         + "  WHERE p.Parent_pk = ? AND p.Parent_pk = c.Parent_fk";
+
+        static private IEnumerable<MyJoin> DoQuery(SQLiteConnection conn, int key)
+        {
+            return conn.Query<MyJoin>(selectStr, key);
+        }
+
         static public void Main(string[] args)
         {
             string dbPath =  (args.Length == 0) ? "../demo.db" : args[0];
@@ -69,10 +85,14 @@ namespace waltonstine.demo.dotnet.sqlite
                     break;
                 }
             }
-            if (ii == (maxChildren + 1))
+
+            if (ii < (maxChildren + 1))
             {
-                Console.WriteLine($"Wrote {maxChildren} rows to Child.");
+                Console.Error.WriteLine("ERROR: insert failure!");
+                return;
             }
+
+            Console.WriteLine($"Wrote {maxChildren} rows to Child.");
 
             IEnumerable<Child> selected = conn.Table<Child>().Where(c => c.Parent_fk == 1);
 
@@ -80,6 +100,14 @@ namespace waltonstine.demo.dotnet.sqlite
             foreach (Child c in selected)
             {
                 Console.WriteLine($"{c.Child_pk} | {c.Parent_fk} | {c.Detail}");
+            }
+
+            Console.WriteLine("Do query:");
+            IEnumerable<MyJoin> resultSet = DoQuery(conn, 1);
+            Console.WriteLine("Result set from query:");
+            foreach (MyJoin row in resultSet)
+            {
+                Console.WriteLine($"{row.Ppk} | {row.Cpk} | {row.Det}");
             }
 
             conn.Close();
