@@ -69,7 +69,7 @@ CS1002 occurs if this is violated.
 
 Install .NET Core 2.0 and sqlite3. Then,
 
-1. git clone git@github.com:rstinejr/SimpleDotNetSQLite.git
+1. git clone https://github.com/rstinejr/SimpleDotNetSQLite.git
 2. cd SimpleDotNetSQL
 3. sqlite3 demo.db < DdlForDemo.sql
 4. cd AccessSQLite
