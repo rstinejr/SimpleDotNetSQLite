@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using System;
+using System.Collections.Generic;
 
 namespace waltonstine.demo.dotnet.sqlite
 {
@@ -8,7 +9,7 @@ namespace waltonstine.demo.dotnet.sqlite
         public class Parent 
         {
             [PrimaryKey, AutoIncrement]
-            public int    Parent_pk { get; }
+            public int    Parent_pk { get; set; }
             public string Name      { get; set; }
             public float  MyFloat   { get; set; }
             public byte[] Data      { get; set; }
@@ -17,7 +18,7 @@ namespace waltonstine.demo.dotnet.sqlite
         public class Child
         {
             [PrimaryKey, AutoIncrement]
-            public int Child_pk { get; }
+            public int Child_pk  { get; set; }
             public int Parent_fk { get; set; }
             public string Detail { get; set; }
         }
@@ -45,6 +46,7 @@ namespace waltonstine.demo.dotnet.sqlite
             return insertCnt;
         }
 
+        
         static public void Main(string[] args)
         {
             string dbPath =  (args.Length == 0) ? "../demo.db" : args[0];
@@ -54,6 +56,7 @@ namespace waltonstine.demo.dotnet.sqlite
             SQLiteConnection conn = new SQLiteConnection(dbPath);
 
             int cnt = InsertParent(conn, "george", 1.234F, null);
+            Console.WriteLine($"Inserted {cnt} rows to Parent");
 
             int ii = 1;
             int maxChildren = 3;
@@ -66,15 +69,22 @@ namespace waltonstine.demo.dotnet.sqlite
                     break;
                 }
             }
-            
-            conn.Close();
-
-            Console.WriteLine($"Inserted {cnt} rows to Parent");
-
             if (ii == (maxChildren + 1))
             {
                 Console.WriteLine($"Wrote {maxChildren} rows to Child.");
             }
+
+            IEnumerable<Child> selected = conn.Table<Child>().Where(c => c.Parent_fk == 1);
+
+            Console.WriteLine("Rows from table 'Child': ");
+            foreach (Child c in selected)
+            {
+                Console.WriteLine($"{c.Child_pk} | {c.Parent_fk} | {c.Detail}");
+            }
+
+            conn.Close();
+
+            Console.WriteLine("\nDemo is complete.");
         }
     }
 }
