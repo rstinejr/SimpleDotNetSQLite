@@ -91,14 +91,28 @@ Install .NET Core 2.0 and sqlite3. Then,
 Expected output:
 
 ```
-SimpleDotNetSQLite\AccessSQLite>dotnet run
 Open database ../demo.db
 Inserted 1 rows to Parent
 Wrote 3 rows to Child.
+
+Select rows from table 'Child' where Parent_fk == 1:
+Selected rows from table 'Child':
+1 | 1 | Detail 1
+2 | 1 | Detail 2
+3 | 1 | Detail 3
+
+Execute a join:
+Result set from query:
+1 | 1 | 1.234 | Detail 1
+1 | 2 | 1.234 | Detail 2
+1 | 3 | 1.234 | Detail 3
+
+Demo is complete.
+
 ```
 
 # Build Notes
 
 I initially built this project on 64-bit Windows 10 with dotnet 2.0.
 
-It builds and runs on CentOS 7.4 and Linux Mint 17.2.
+I have also built and run it on CentOS 7.4 and Linux Mint 17.2.
