@@ -1,7 +1,6 @@
 # SimpleDotNetSQLite
-A tiny project that illustrates creating a SQLite database and accessing it with .NET Core
 
-This project illustrates using .NET Core to access a [SQLite](http://sqlite.org/) database. 
+This tiny project illustrates using .NET Core to access a [SQLite](http://sqlite.org/) database. 
 
 
 Even though this is a .NET Core project, when I have a project that includes
@@ -20,38 +19,27 @@ to access pre-existing tables, and to explore the mappings between sqlite-net an
 
 ## Set Up Your Environment
 
-This package assumes that .NET Core, the SQLite and libraries, and the sqlite-net NuGet package are installed.
+This project assumes that .NET Core and SQLite are installed.
 
 ## Installing .NET Core
 
-.NET Core may be downloaded from https://dot.net.
+Instructions for downloading and installing .NET Core are at https://dot.net.
 
 For Windows developers, the community version of an outstanding IDE, Visual Studio, may also be unloaded from that site.
 
 ## Installing SQLite
 
 SQLite is serverless. "Installing" SQLite is actually more a case of deploying a shell command,
-[sqlite3](https://linux.die.net/man/1/sqlite3), that can create
-files and structure memory appropriately.
+[sqlite3](https://linux.die.net/man/1/sqlite3), that creates
+files and structures memory appropriately.
 
 On RHEL, sqlite can be installed using ```yum```.  My initial development environment,
 however, is Windows 10, so I followed the instructions
 on [How to Install Sqlite3 on Windows 10)[http://www.configserverfirewall.com/windows-10/install-sqlite3-on-windows-10/]
 
-Download the sqlite-tools zip file from the [SQLite Download site](https://www.sqlite.org/download.html).  Note that you will use the 32-bit tool on Windows 10: SQLite is not server based. The
-tool will successfully format the SQLite data files even on a 64-bit machine.
+Download the sqlite-tools zip file from the [SQLite Download site](https://www.sqlite.org/download.html).  Note
+that you will use the 32-bit tool on 64-bit Windows.
 
-
-## Installing sqlite-net
-
-The .NET Core interface *sqlite-net* is a NuGet package. Instructions for installing it are
-at [www.nuget.org](https://www.nuget.org/packages/sqlite-net-pcl). To install the
-latest version from the command line,
-
-
-```
-    dotnet add package sqlite-net-pcl
-```
 
 # Creating the Database
 
@@ -67,11 +55,11 @@ present, the command will attempt to update the database with the DDL.
 
 # Dropping the Database
 
-SQLite is a serverless database. You can drop a database by simply deleting the file (e.g., demo.db).
+SQLite is a serverless database. You can drop a database by simply deleting the file (in this case, demo.db).
 
 # Implementation Notes
 
-To avoid complaints about incompatibility with netcoreapp2.0, I had to use version 1.5.166-beta
+To avoid complaints about incompatibility with netcoreapp2.0, I had to use version 1.5.166-beta of sqlite-net.
 
 When mapping classes to tables, sqlite-net enforces a naming convention of initial caps for fields; build error
 CS1002 occurs if this is violated.
@@ -116,3 +104,17 @@ Demo is complete.
 I initially built this project on 64-bit Windows 10 with dotnet 2.0.
 
 I have also built and run it on CentOS 7.4 and Linux Mint 17.2.
+
+
+# Postscript: Installing sqlite-net
+
+If you want to add *sqlite-net* to an existing .NET project, your project will need the NuGet package. 
+
+One way to update your csproj file for this is to enter:
+
+
+```
+    dotnet add package sqlite-net-pcl
+```
+
+See [www.nuget.org](https://www.nuget.org/packages/sqlite-net-pcl).
