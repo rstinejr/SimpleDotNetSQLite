@@ -101,4 +101,4 @@ Wrote 3 rows to Child.
 
 I initially built this project on 64-bit Windows 10 with dotnet 2.0.
 
-It builds and runs on CentOS 7.4.
+It builds and runs on CentOS 7.4 and Linux Mint 17.2.
