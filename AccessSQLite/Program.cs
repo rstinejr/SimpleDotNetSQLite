@@ -27,6 +27,7 @@ namespace waltonstine.demo.dotnet.sqlite
         {
             public int    Ppk { get; set; }
             public int    Cpk { get; set; }
+            public float  Flt { get; set; }
             public string Det { get; set; }
 
         }
@@ -54,9 +55,10 @@ namespace waltonstine.demo.dotnet.sqlite
             return insertCnt;
         }
 
-        private static string selectStr = "SELECT \"Parent_pk\" as \"Ppk\", \"c.Child_pk\" as \"Cpk\", \"Detail\" as \"Det\" "
-                                         + "  FROM Parent p, Child c "
-                                         + "  WHERE p.Parent_pk = ? AND p.Parent_pk = c.Parent_fk";
+        private static string selectStr = "SELECT \"Parent_pk\" as \"Ppk\", \"Child_pk\" as \"Cpk\", "
+                                         +       "\"MyFloat\" as \"Flt\", \"Detail\" as \"Det\" "
+                                         + "  FROM Parent, Child "
+                                         + "  WHERE Parent_pk = ? AND Parent_pk = Parent_fk";
 
         static private IEnumerable<MyJoin> DoQuery(SQLiteConnection conn, int key)
         {
@@ -107,7 +109,7 @@ namespace waltonstine.demo.dotnet.sqlite
             Console.WriteLine("Result set from query:");
             foreach (MyJoin row in resultSet)
             {
-                Console.WriteLine($"{row.Ppk} | {row.Cpk} | {row.Det}");
+                Console.WriteLine($"{row.Ppk} | {row.Cpk} | {row.Flt} | {row.Det}");
             }
 
             conn.Close();
