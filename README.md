@@ -35,7 +35,7 @@ files and structures memory appropriately.
 
 On RHEL, sqlite can be installed using ```yum```.  My initial development environment,
 however, is Windows 10, so I followed the instructions
-on [How to Install Sqlite3 on Windows 10)[http://www.configserverfirewall.com/windows-10/install-sqlite3-on-windows-10/]
+on [How to Install Sqlite3 on Windows 10](http://www.configserverfirewall.com/windows-10/install-sqlite3-on-windows-10/)
 
 Download the sqlite-tools zip file from the [SQLite Download site](https://www.sqlite.org/download.html).  Note
 that you will use the 32-bit tool on 64-bit Windows.
