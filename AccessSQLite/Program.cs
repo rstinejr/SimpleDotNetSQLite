@@ -96,15 +96,16 @@ namespace waltonstine.demo.dotnet.sqlite
 
             Console.WriteLine($"Wrote {maxChildren} rows to Child.");
 
+            Console.WriteLine("\nSelect rows from table 'Child' where Parent_fk == 1:");
             IEnumerable<Child> selected = conn.Table<Child>().Where(c => c.Parent_fk == 1);
 
-            Console.WriteLine("Rows from table 'Child': ");
+            Console.WriteLine("Selected rows from table 'Child': ");
             foreach (Child c in selected)
             {
                 Console.WriteLine($"{c.Child_pk} | {c.Parent_fk} | {c.Detail}");
             }
 
-            Console.WriteLine("Do query:");
+            Console.WriteLine("\nExecute a join:");
             IEnumerable<MyJoin> resultSet = DoQuery(conn, 1);
             Console.WriteLine("Result set from query:");
             foreach (MyJoin row in resultSet)
