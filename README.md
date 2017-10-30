@@ -58,10 +58,6 @@ present, the command will attempt to update the database with the DDL.
 
 SQLite is a serverless database. You can drop a database by simply deleting the file (in this case, demo.db).
 
-# Implementation Notes
-
-To avoid complaints about incompatibility with netcoreapp2.0, I had to use version 1.5.166-beta of sqlite-net.
-
 When mapping classes to tables, sqlite-net enforces a naming convention of initial caps for fields; build error
 CS1002 occurs if this is violated.
 
@@ -103,8 +99,10 @@ Demo is complete.
 # Build Notes
 
 I initially built this project on 64-bit Windows 10 with dotnet 2.0.
+To avoid complaints about incompatibility with netcoreapp2.0, I had to use version 1.5.166-beta of sqlite-net.
 
-I have also built and run it on CentOS 7.4 and Linux Mint 17.2.
+
+I have also built and run this project on CentOS 7.4 and Linux Mint 17.2.
 
 
 # Postscript: Installing sqlite-net
