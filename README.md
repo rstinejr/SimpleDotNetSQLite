@@ -32,10 +32,10 @@ For Windows developers, the community version of an outstanding IDE, Visual Stud
 
 SQLite is serverless. "Installing" SQLite is actually more a case of deploying a shell command,
 [sqlite3](https://linux.die.net/man/1/sqlite3), that creates
-files and structures memory appropriately.
+files with the appropriate lay-out.
 
-On RHEL, sqlite can be installed using ```yum```.  My initial development environment,
-however, is Windows 10, so I followed the instructions
+On RHEL, *sqlite3* can be installed using ```yum```.  My initial development environment,
+however, was Windows 10, so I followed the instructions
 on [How to Install Sqlite3 on Windows 10](http://www.configserverfirewall.com/windows-10/install-sqlite3-on-windows-10/)
 
 Download the sqlite-tools zip file from the [SQLite Download site](https://www.sqlite.org/download.html).  Note
@@ -56,7 +56,7 @@ present, the command will attempt to update the database with the DDL.
 
 # Dropping the Database
 
-SQLite is a serverless database. You can drop a database by simply deleting the file (in this case, demo.db).
+Because SQLite is a serverless database, you can drop a database by simply deleting the data file (in this case, *demo.db*).
 
 When mapping classes to tables, sqlite-net enforces a naming convention of initial caps for fields; build error
 CS1002 occurs if this is violated.
